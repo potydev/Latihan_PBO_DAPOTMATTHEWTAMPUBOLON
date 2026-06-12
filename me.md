@@ -7,4 +7,4 @@ atribut spesifik (anak - set menjadi Nullable): tipe_audio, lokasi_baris, kacama
 
 isilah table tersebut dengan minimal 2 data sampel untuk masing masing  jenis studio( total minimal 20 data baris)
 
-wew
+wewe
