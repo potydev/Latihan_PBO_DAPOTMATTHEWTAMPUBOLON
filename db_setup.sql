@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS tabel_tiket (
     kacamata_3d_id VARCHAR(50) NULL,
     efek_gerak_fitur VARCHAR(100) NULL,
     bantal_selimut_pack VARCHAR(50) NULL,
-    layanan_butter VARCHAR(100) NULL
+    layanan_butler VARCHAR(100) NULL
 );
 
 -- 3. Memasukkan Data Sampel (Minimal 2 untuk masing-masing studio, Total 20 Baris)
@@ -33,7 +33,7 @@ INSERT INTO tabel_tiket (
     kacamata_3d_id, 
     efek_gerak_fitur, 
     bantal_selimut_pack, 
-    layanan_butter
+    layanan_butler
 ) VALUES 
 -- --- KELOMPOK STUDIO: REGULER (7 Baris) ---
 ('Avengers: Endgame', '2026-06-15 13:00:00', 120, 35000.00, 'reguler', 'Dolby Atmos 7.1', 'Row A-K', NULL, NULL, NULL, NULL),
