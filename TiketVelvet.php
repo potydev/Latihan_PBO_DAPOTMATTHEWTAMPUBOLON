@@ -33,5 +33,26 @@ class TiketVelvet extends Tiket {
     public function tampilkanInfoFasilitas() {
         return "Fasilitas Velvet: Sofa Bed, {$this->bantalSelimutPack}, Layanan Butler: {$this->layananButler}.";
     }
+
+    // Metode Query Spesifik untuk mengambil data tiket Velvet
+    public static function getDaftarVelvet(PDO $db) {
+        $query = "SELECT * FROM tabel_tiket WHERE jenis_studio = 'velvet'";
+        $stmt = $db->prepare($query);
+        $stmt->execute();
+
+        $tiketList = [];
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $tiketList[] = new self(
+                $row['id_tiket'],
+                $row['nama_film'],
+                $row['jadwal_tayang'],
+                $row['jumlah_kursi'],
+                $row['harga_dasar_tiket'],
+                $row['bantal_selimut_pack'],
+                $row['layanan_butler']
+            );
+        }
+        return $tiketList;
+    }
 }
 ?>

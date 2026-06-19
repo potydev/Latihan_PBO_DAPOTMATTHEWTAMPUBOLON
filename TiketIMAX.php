@@ -35,5 +35,26 @@ class TiketIMAX extends Tiket {
         $efekText = !empty($this->efekGerakFitur) && $this->efekGerakFitur !== 'None' ? "Efek Gerak: {$this->efekGerakFitur}" : "Tanpa Efek Gerak";
         return "Fasilitas IMAX: Layar Lebar IMAX, {$kacamataText}, {$efekText}.";
     }
+
+    // Metode Query Spesifik untuk mengambil data tiket IMAX
+    public static function getDaftarIMAX(PDO $db) {
+        $query = "SELECT * FROM tabel_tiket WHERE jenis_studio = 'imax'";
+        $stmt = $db->prepare($query);
+        $stmt->execute();
+
+        $tiketList = [];
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $tiketList[] = new self(
+                $row['id_tiket'],
+                $row['nama_film'],
+                $row['jadwal_tayang'],
+                $row['jumlah_kursi'],
+                $row['harga_dasar_tiket'],
+                $row['kacamata_3d_id'],
+                $row['efek_gerak_fitur']
+            );
+        }
+        return $tiketList;
+    }
 }
 ?>

@@ -32,5 +32,26 @@ class TiketReguler extends Tiket {
     public function tampilkanInfoFasilitas() {
         return "Fasilitas Reguler: Audio {$this->tipeAudio}, Posisi Baris {$this->lokasiBaris}.";
     }
+
+    // Metode Query Spesifik untuk mengambil data tiket reguler
+    public static function getDaftarReguler(PDO $db) {
+        $query = "SELECT * FROM tabel_tiket WHERE jenis_studio = 'reguler'";
+        $stmt = $db->prepare($query);
+        $stmt->execute();
+
+        $tiketList = [];
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $tiketList[] = new self(
+                $row['id_tiket'],
+                $row['nama_film'],
+                $row['jadwal_tayang'],
+                $row['jumlah_kursi'],
+                $row['harga_dasar_tiket'],
+                $row['tipe_audio'],
+                $row['lokasi_baris']
+            );
+        }
+        return $tiketList;
+    }
 }
 ?>
