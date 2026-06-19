@@ -65,3 +65,13 @@ potongan/insentif apresiasi prestasi sebesar Rp50.000 dari biaya dasar).
 3. PendaftaranKedinasan: Total Biaya = (biayaPendaftaranDasar) * 1.25 (Dikenakan
 surcharge/biaya tambahan untuk pengurusan administrasi khusus dan kemitraan
 dinas sebesar 25% dari biaya dasar).
+
+Tahap 6: Pembuatan Komponen Antarmuka (View dengan PHP)
+1. Bangun halaman antarmuka (view) menggunakan PHP untuk menampilkan daftar
+pendaftaran mahasiswa baru yang masuk secara dinamis dari database.
+2. Manfaatkan metode query spesifik dari Tahap 4 untuk memisahkan atau
+mengelompokkan tampilan tabel data calon mahasiswa berdasarkan kategori: Jalur
+Reguler, Jalur Prestasi, dan Jalur Kedinasan.
+3. Manfaatkan metode polimorfik (tampilkanInfoJalur() dan hitungTotalBiaya()) untuk
+mencetak atribut unik masing-masing jalur beserta kalkulasi akhir total biaya
+pendaftaran langsung pada halaman web.
